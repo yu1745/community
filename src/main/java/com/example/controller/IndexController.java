@@ -19,7 +19,7 @@ public class IndexController {
         Cookie[] cookies = request.getCookies();
         for (Cookie c : cookies)
             if ("token".equals(c.getName()))
-                request.getSession().setAttribute("user", userMapper.findUserByToken(c.getValue()));
+                request.getSession().setAttribute("user", userMapper.findByToken(c.getValue()));
         return "index";
     }
 }
